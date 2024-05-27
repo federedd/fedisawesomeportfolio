@@ -18,17 +18,22 @@ const StyledButton = styled.button`
     color: var(--primary-background-color);
   }
 `;
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 function Buttons({ projectItem, setProject, filterProjects }) {
   return (
-    <div id="projects">
+    <ButtonsWrapper id="projects">
       {projectItem.map((val, index) => (
         <StyledButton key={index} onClick={() => filterProjects(val)}>
           {val}
         </StyledButton>
       ))}
       <StyledButton onClick={() => setProject(PROJECT_UTILS)}>ALL</StyledButton>
-    </div>
+    </ButtonsWrapper>
   );
 }
 

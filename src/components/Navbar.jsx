@@ -93,7 +93,7 @@ export default function Navbar() {
 
   return (
     <Navigation>
-      <a className="title" href="/">
+      <a className="title">
         Fedi's awesome <br />
         portfolio
       </a>

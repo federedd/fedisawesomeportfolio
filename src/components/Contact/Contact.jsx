@@ -73,10 +73,10 @@ function Contact() {
           handle="federedd"
           href="https://github.com/federedd"
         />
-        <Mailto email="federica.rossi1729@gmail.com">
+        <Mailto email="fedicodes@gmail.com">
           <ContactCard
             src={getImageUrl("google.png")}
-            handle="federica.rossi1729@gmail.com"
+            handle="fedicodes@gmail.com"
           />
         </Mailto>
       </CardContainer>

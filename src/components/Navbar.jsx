@@ -5,10 +5,9 @@ import { useState } from "react";
 import { getImageUrl } from "../utils";
 
 const Navigation = styled.div`
-  z-index: 1;
   display: flex;
   justify-content: space-between;
-  margin: 46px 156px;
+  margin: 24px 156px 50px;
   ul {
     display: flex;
     list-style: none;
@@ -18,8 +17,8 @@ const Navigation = styled.div`
   }
   .title {
     letter-spacing: -2px;
-    line-height: 30px;
-    font-size: 30px;
+    line-height: 20px;
+    font-size: 26px;
     text-decoration: none;
     color: var(--secondary-color);
     font-family: var(--primary-font);
@@ -28,6 +27,7 @@ const Navigation = styled.div`
   }
 
   img {
+    z-index: 1;
     display: none;
     margin: 10px;
     width: 26px;
@@ -43,6 +43,7 @@ const Navigation = styled.div`
   }
 
   @media screen and (max-width: 830px) {
+    margin: 46px 80px;
     img {
       display: flex;
     }
@@ -57,10 +58,9 @@ const Navigation = styled.div`
 
     .menu-open {
       display: flex;
-      flex-direction: column;
-      position: absolute;
       top: 156px;
       gap: 20px;
+      /* background-color: var(--secondary-color); */
       background: rgb(19, 21, 24);
       background: linear-gradient(
         180deg,
@@ -93,38 +93,36 @@ export default function Navbar() {
 
   return (
     <Navigation>
-      <a className="title">
+      <img
+        src={
+          menuOpen
+            ? getImageUrl("xmark-solid.svg")
+            : getImageUrl("bars-solid.svg")
+        }
+        onClick={() => setMenuOpen(!menuOpen)}
+      />
+      <a className={menuOpen ? "hide" : "title"}>
         Fedi's awesome <br />
         portfolio
       </a>
-      <div>
-        <ul
-          className={menuOpen ? "menu-open" : "hide"}
-          onClick={() => setMenuOpen(false)}
-        >
-          <NavItems>
-            <Title href="#about">About</Title>
-          </NavItems>
-          <NavItems>
-            <Title href="#experience">Experience</Title>
-          </NavItems>
-          <NavItems>
-            <Title href="#projects">Projects</Title>
-          </NavItems>
-          <NavItems>
-            <Title href="#contact">Contact</Title>
-          </NavItems>
-        </ul>
 
-        <img
-          src={
-            menuOpen
-              ? getImageUrl("xmark-solid.svg")
-              : getImageUrl("bars-solid.svg")
-          }
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
-      </div>
+      <ul
+        className={menuOpen ? "menu-open" : "hide"}
+        onClick={() => setMenuOpen(false)}
+      >
+        <NavItems>
+          <Title href="#about">About</Title>
+        </NavItems>
+        <NavItems>
+          <Title href="#experience">Experience</Title>
+        </NavItems>
+        <NavItems>
+          <Title href="#projects">Projects</Title>
+        </NavItems>
+        <NavItems>
+          <Title href="#contact">Contact</Title>
+        </NavItems>
+      </ul>
     </Navigation>
   );
 }

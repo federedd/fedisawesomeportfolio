@@ -2,16 +2,16 @@ import styled from "styled-components";
 import React from "react";
 import { getImageUrl } from "../utils";
 import { useState } from "react";
+import Carousel from "./Carousel";
 
 const Container = styled.div`
   display: flex;
-  margin: 70px 100px;
+  margin: 134px 100px;
   margin-bottom: 150px;
   justify-content: space-between;
+  align-items: center;
   span {
-    font-size: 120px;
     color: var(--secondary-color);
-    margin-left: 10px;
   }
   .socials {
     display: flex;
@@ -43,24 +43,25 @@ const Container = styled.div`
     flex-direction: column;
     gap: 10px;
     z-index: 1;
+    align-items: flex-end;
   }
 
   .ventolino {
     position: absolute;
     width: 95px;
-    top: 41px;
-    right: 178px;
+    top: 26px;
+    right: 123px;
   }
 
   .hero-img {
-    width: 450px;
+    width: 180px;
   }
 
   .spin {
     position: absolute;
     width: 95px;
-    top: 41px;
-    right: 178px;
+    top: 26px;
+    right: 123px;
     animation: spin 5000ms infinite linear;
   }
 
@@ -85,6 +86,7 @@ const Container = styled.div`
   }
 
   h2 {
+    padding-top: 40px;
     text-transform: uppercase;
     color: var(--secondary-color);
     font-family: var(--primary-font);
@@ -92,16 +94,17 @@ const Container = styled.div`
     z-index: 1;
   }
   .title {
-    color: var(--primary-color);
-    font-family: var(--primary-font);
+    color: var(--secondary-color);
+    font-family: var(--secondary-font);
     font-weight: 500;
     font-size: 30px;
-    letter-spacing: -1px;
     line-height: 35px;
     z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: -1px;
   }
   p {
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.7);
     font-family: var(--secondary-font);
     font-size: 16px;
     font-weight: 200;
@@ -138,35 +141,42 @@ const Container = styled.div`
 const Image = styled.img`
   width: 40px;
 `;
+
+const NameTitle = styled.h1`
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -4px;
+  color: var(--primary-color);
+  font-family: var(--secondary-font);
+  font-size: 75px;
+  line-height: 60px;
+  z-index: 1;
+`;
+
 const ContainerLeft = styled.div`
-  margin: 90px 40px;
-  h1 {
-    font-weight: 700;
-    letter-spacing: -4px;
-    color: var(--primary-color);
-    font-family: var(--secondary-font);
-    font-size: 75px;
-    line-height: 60px;
-    z-index: 1;
-  }
   display: flex;
   flex-direction: column;
-  img {
-    width: 40px;
-  }
-  gap: 90px;
-  width: 305px;
+  gap: 50px;
+  width: 345px;
   @media screen and (max-width: 830px) {
     height: 310px;
   }
 `;
 const ContainerRight = styled.div`
+  h2 {
+    color: var(--primary-color);
+    font-weight: 800;
+  }
+  img {
+    width: 40px;
+  }
   margin-left: 50px;
   display: flex;
   flex-direction: column;
+  text-align: end;
   width: 305px;
-  justify-content: center;
   gap: 20px;
+  padding-right: 30px;
 `;
 
 const TopBlur = styled.div`
@@ -176,7 +186,7 @@ const TopBlur = styled.div`
   min-width: 350px;
   min-height: 350px;
   top: -128px;
-  left: -10vw;
+  left: -9vw;
   border-radius: 764px;
   background: rgba(90, 90, 90, 0.7);
   filter: blur(100px);
@@ -212,20 +222,55 @@ const Contact = styled.a`
   }
 `;
 
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+`;
+
 export default function Hero() {
   const [spin, setSpin] = useState(false);
   const handleAnimation = () => {
     setSpin(!spin);
   };
-  // useEffect(() => {
-  //   setSpin(!spin);
-  // }, [""]);
   return (
     <Container>
       <ContainerLeft>
-        <h1>
-          Federica <br /> Rossi<span>.</span>
-        </h1>
+        <TitleContainer>
+          <NameTitle>
+            <span>I'm</span> Federica Rossi<span>.</span>
+          </NameTitle>
+          <h1 className="title">
+            Front End <br />
+            Software Engineer
+          </h1>
+        </TitleContainer>
+      </ContainerLeft>
+      {/* <div className="imageContainer">
+        <Image
+          className={"hero-img"}
+          src={getImageUrl("MissG.png")}
+          onClick={handleAnimation}
+        />
+        <img
+          src={getImageUrl("ventolino.png")}
+          className={spin ? "ventolino" : "spin"}
+          onClick={handleAnimation}
+        />
+      </div> */}
+      <Carousel></Carousel>
+      <ContainerRight>
+        <h2>
+          About <span>me:</span>
+        </h2>
+
+        <p>
+          I am a self-taught front-end software engineer with 6 months of
+          experience, proficient in HTML, CSS, and JavaScript. Currently, I am
+          expanding my skills by learning React to build beautifully dynamic and
+          responsive web applications.
+        </p>
+        <a href="#experience">learn more... </a>
         <div className="socials-button-container">
           <div className="socials">
             <a href="https://www.linkedin.com/in/federed/" target="_">
@@ -237,30 +282,6 @@ export default function Hero() {
           </div>
           <Contact href="#contact">contact me</Contact>
         </div>
-      </ContainerLeft>
-      <div className="imageContainer">
-        <Image
-          className={"hero-img"}
-          src={getImageUrl("cover.png")}
-          onClick={handleAnimation}
-        />
-        <img
-          src={getImageUrl("ventolino.png")}
-          className={spin ? "ventolino" : "spin"}
-          onClick={handleAnimation}
-        />
-      </div>
-      <ContainerRight>
-        <h2>About me:</h2>
-        <h1 className="title">
-          Front End <br />
-          Software Engineer
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <a href="#experience">learn more... </a>
       </ContainerRight>
       <TopBlur></TopBlur>
       <BottomBlur></BottomBlur>

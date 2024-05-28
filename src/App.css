@@ -16,3 +16,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+.swiper-button-next {
+  color: var(--secondary-color);
+  padding-left: 20px;
+}
+
+.swiper-button-prev {
+  color: var(--secondary-color);
+  padding-right: 20px;
+}

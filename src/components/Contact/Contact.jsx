@@ -10,6 +10,9 @@ const Container = styled.div`
   padding: 100px 100px;
   text-align: center;
   background-color: var(--secondary-background-color);
+  @media screen and (max-width: 830px) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h1`

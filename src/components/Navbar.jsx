@@ -60,13 +60,6 @@ const Navigation = styled.div`
       display: flex;
       top: 156px;
       gap: 20px;
-      /* background-color: var(--secondary-color); */
-      background: rgb(19, 21, 24);
-      background: linear-gradient(
-        180deg,
-        rgba(19, 21, 24, 1) 0%,
-        rgba(101, 105, 120, 0.38561362044817926) 100%
-      );
       padding: 20px;
       align-items: center;
       border-radius: 20px;

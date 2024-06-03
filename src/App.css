@@ -17,12 +17,33 @@ html {
   scroll-behavior: smooth;
 }
 
+.swiper-button-prev,
 .swiper-button-next {
   color: var(--secondary-color);
-  padding-left: 20px;
+  background-color: var(--secondary-background-color);
+  padding-left: 35px;
+  border-radius: 50%;
+  position: absolute;
+  top: 437px;
+  margin: 0;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #51535a;
+}
+
+.swiper-button-next {
+  right: 96px;
+  padding: 30px;
 }
 
 .swiper-button-prev {
-  color: var(--secondary-color);
-  padding-right: 20px;
+  left: 125px;
+  padding: 30px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 15px;
 }

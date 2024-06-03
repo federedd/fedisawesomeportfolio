@@ -49,8 +49,8 @@ const Container = styled.div`
   .ventolino {
     position: absolute;
     width: 95px;
-    top: 26px;
-    right: 123px;
+    top: 24px;
+    right: 150px;
   }
 
   .hero-img {
@@ -60,8 +60,8 @@ const Container = styled.div`
   .spin {
     position: absolute;
     width: 95px;
-    top: 26px;
-    right: 123px;
+    top: 24px;
+    right: 150px;
     animation: spin 5000ms infinite linear;
   }
 
@@ -177,6 +177,14 @@ const ContainerRight = styled.div`
   width: 305px;
   gap: 20px;
   padding-right: 30px;
+  @media screen and (max-width: 830px) {
+    align-items: center;
+    text-align: center;
+    .socials {
+      margin: 20px;
+      gap: 10px;
+    }
+  }
 `;
 
 const TopBlur = styled.div`

@@ -8,12 +8,14 @@ import { useState } from "react";
 
 const Image = styled.img`
   width: 200px;
-  margin: 20px 77px;
+  margin: 20px 90px;
 `;
 
 const Ventolino = styled.img``;
 
 const ImageContainer = styled.div`
+  height: 500px;
+  width: 390px;
   position: relative;
   animation-name: floating;
   animation-duration: 3s;
@@ -25,7 +27,7 @@ const ImageContainer = styled.div`
       transform: translate(0, 0px);
     }
     50% {
-      transform: translate(0, 20px);
+      transform: translate(0, 30px);
     }
     100% {
       transform: translate(0, -0px);
